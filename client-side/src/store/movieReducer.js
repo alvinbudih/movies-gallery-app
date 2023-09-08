@@ -1,10 +1,11 @@
-import { FETCH_CONFIG, FETCH_DETAIL, FETCH_FILTER, FETCH_GENRES, FETCH_POPULAR, FETCH_SEARCH } from "./actionType";
+import { FETCH_CONFIG, FETCH_DETAIL, FETCH_FILTER, FETCH_GENRES, FETCH_POPULAR, FETCH_SEARCH, SET_IMG_URL } from "./actionType";
 
 const initialState = {
   movies: [],
   movie: {},
   genres: [],
   configuration: {},
+  imgUrl: ""
 };
 
 export default function movieReducer(state = initialState, action) {
@@ -33,6 +34,12 @@ export default function movieReducer(state = initialState, action) {
       return {
         ...state,
         configuration: action.payload
+      }
+
+    case SET_IMG_URL:
+      return {
+        ...state,
+        imgUrl: action.payload
       }
 
     default:
